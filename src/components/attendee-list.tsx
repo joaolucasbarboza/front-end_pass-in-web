@@ -62,7 +62,7 @@ export function AttendeeList() {
 
   useEffect(() => {
     const url = new URL(
-      "https://api-nodejs-pass-in-8ni9kpib1-valladevs-projects.vercel.app/events/9e9bd979-9d10-4915-b339-3786b1634f33/attendees"
+      "http://127.0.0.1:3333/events/9e9bd979-9d10-4915-b339-3786b1634f33/attendees"
     );
 
     url.searchParams.set("pageIndex", String(page - 1));
@@ -70,7 +70,8 @@ export function AttendeeList() {
     if (search.length > 0) {
       url.searchParams.set("query", search);
     }
-    fetch(url)
+    fetch(url, {
+    })
       .then((response) => response.json())
       .then((data) => {
         setAttendees(data.attendees);
